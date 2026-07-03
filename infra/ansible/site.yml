@@ -1,0 +1,18 @@
+---
+- name: Harden all nodes
+  hosts: all
+  become: yes
+  roles:
+    - base-hardening
+
+- name: Install k3s control plane
+  hosts: control-plane
+  become: yes
+  roles:
+    - k3s-server
+
+- name: Join workers to cluster
+  hosts: workers
+  become: yes
+  roles:
+    - k3s-agent

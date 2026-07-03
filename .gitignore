@@ -1,0 +1,12 @@
+infra/terraform/.terraform/
+infra/terraform/terraform.tfstate
+infra/terraform/terraform.tfstate.backup
+infra/terraform/*.tfvars
+!infra/terraform/*.tfvars.example
+*.kubeconfig
+kubeconfig
+infra/ansible/node-token
+.env
+*.pem
+*.key
+.DS_Store

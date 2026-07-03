@@ -1,0 +1,27 @@
+---
+- name: Download k3s install script
+  get_url:
+    url: https://get.k3s.io
+    dest: /tmp/k3s-install.sh
+    mode: '0755'
+
+- name: Install k3s agent using private IP
+  shell: /tmp/k3s-install.sh
+  environment:
+    INSTALL_K3S_EXEC: "agent"
+    K3S_URL: "https://{{ hostvars['control-plane']['private_ip'] }}:6443"
+    K3S_TOKEN: "{{ hostvars['control-plane']['k3s_token'] }}"
+  args:
+    creates: /usr/local/bin/k3s
+
+- name: Allow WireGuard through firewall
+  ufw:
+    rule: allow
+    port: "51820"
+    proto: udp
+
+- name: Allow kubelet through firewall
+  ufw:
+    rule: allow
+    port: "10250"
+    proto: tcp

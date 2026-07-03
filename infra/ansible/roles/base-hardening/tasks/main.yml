@@ -1,0 +1,46 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Upgrade all packages
+  apt:
+    upgrade: yes
+
+- name: Install required packages
+  apt:
+    name:
+      - curl
+      - ufw
+      - fail2ban
+    state: present
+
+- name: Allow SSH through firewall
+  ufw:
+    rule: allow
+    port: "22"
+    proto: tcp
+
+- name: Allow HTTP through firewall
+  ufw:
+    rule: allow
+    port: "80"
+    proto: tcp
+
+- name: Allow HTTPS through firewall
+  ufw:
+    rule: allow
+    port: "443"
+    proto: tcp
+
+- name: Enable firewall
+  ufw:
+    state: enabled
+    policy: deny
+
+- name: Start fail2ban
+  service:
+    name: fail2ban
+    state: started
+    enabled: yes

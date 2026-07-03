@@ -1,0 +1,51 @@
+---
+- name: Download k3s install script
+  get_url:
+    url: https://get.k3s.io
+    dest: /tmp/k3s-install.sh
+    mode: '0755'
+
+- name: Install k3s server
+  shell: /tmp/k3s-install.sh
+  environment:
+    INSTALL_K3S_EXEC: "server --disable traefik --flannel-backend=wireguard-native"
+  args:
+    creates: /usr/local/bin/k3s
+
+- name: Wait for k3s to be ready
+  wait_for:
+    path: /var/lib/rancher/k3s/server/node-token
+    timeout: 60
+
+- name: Read node token
+  slurp:
+    src: /var/lib/rancher/k3s/server/node-token
+  register: node_token
+
+- name: Save token as fact
+  set_fact:
+    k3s_token: "{{ node_token.content | b64decode | trim }}"
+
+- name: Allow k3s API port through firewall
+  ufw:
+    rule: allow
+    port: "6443"
+    proto: tcp
+
+- name: Allow WireGuard through firewall
+  ufw:
+    rule: allow
+    port: "51820"
+    proto: udp
+
+- name: Allow kubelet through firewall
+  ufw:
+    rule: allow
+    port: "10250"
+    proto: tcp
+
+- name: Fetch kubeconfig
+  fetch:
+    src: /etc/rancher/k3s/k3s.yaml
+    dest: ~/.kube/k3s-config
+    flat: yes
