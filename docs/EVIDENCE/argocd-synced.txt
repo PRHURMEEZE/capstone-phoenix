@@ -1,0 +1,11 @@
+NAME      SYNC STATUS   HEALTH STATUS
+taskapp   Synced        Healthy
+NAME                        READY   STATUS    RESTARTS        AGE
+backend-66879968cf-27kjm    1/1     Running   4 (4m39s ago)   8m11s
+backend-66879968cf-f2swn    1/1     Running   0               2m25s
+backend-66879968cf-fmwhs    1/1     Running   0               2m46s
+backend-66879968cf-lklf5    1/1     Running   0               3m30s
+backend-66879968cf-z6vh9    1/1     Running   0               3m8s
+frontend-7f4986bcc5-fp74t   1/1     Running   0               5h49m
+frontend-7f4986bcc5-npwbw   1/1     Running   3 (6h ago)      11h
+postgres-0                  1/1     Running   0               42m
