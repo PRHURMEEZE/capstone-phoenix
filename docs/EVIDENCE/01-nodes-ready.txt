@@ -1,21 +1,41 @@
 NAME           STATUS   ROLES           AGE    VERSION        INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION           CONTAINER-RUNTIME
-ip-10-0-1-31   Ready    <none>          25h    v1.36.2+k3s1   10.0.1.31     <none>        Ubuntu 22.04.5 LTS   6.8.0-1057-aws (amd64)   containerd://2.3.2-k3s2
-ip-10-0-1-46   Ready    control-plane   2d1h   v1.36.2+k3s1   10.0.1.46     <none>        Ubuntu 22.04.5 LTS   6.8.0-1057-aws (amd64)   containerd://2.3.2-k3s2
-ip-10-0-1-85   Ready    <none>          25h    v1.36.2+k3s1   10.0.1.85     <none>        Ubuntu 22.04.5 LTS   6.8.0-1057-aws (amd64)   containerd://2.3.2-k3s2
-NAME                        READY   STATUS      RESTARTS   AGE   IP           NODE           NOMINATED NODE   READINESS GATES
-backend-6fb8895556-2rhr9    1/1     Running     0          61m   10.42.2.12   ip-10-0-1-85   <none>           <none>
-backend-6fb8895556-8lngx    1/1     Running     0          33s   10.42.0.35   ip-10-0-1-46   <none>           <none>
-backend-6fb8895556-cwm8p    1/1     Running     0          33s   10.42.0.36   ip-10-0-1-46   <none>           <none>
-backend-6fb8895556-j4nz2    1/1     Running     0          62m   10.42.1.11   ip-10-0-1-31   <none>           <none>
-backend-6fb8895556-rlkfz    0/1     Running     0          18s   10.42.2.19   ip-10-0-1-85   <none>           <none>
-frontend-7f4986bcc5-m6lj8   1/1     Running     0          62m   10.42.1.10   ip-10-0-1-31   <none>           <none>
-frontend-7f4986bcc5-npwbw   1/1     Running     0          61m   10.42.0.15   ip-10-0-1-46   <none>           <none>
-postgres-0                  1/1     Running     0          25h   10.42.1.3    ip-10-0-1-31   <none>           <none>
-taskapp-migrate-5cqpq       0/1     Completed   0          37m   10.42.0.16   ip-10-0-1-46   <none>           <none>
+ip-10-0-1-31   Ready    <none>          30h    v1.36.2+k3s1   10.0.1.31     <none>        Ubuntu 22.04.5 LTS   6.8.0-1060-aws (amd64)   containerd://2.3.2-k3s2
+ip-10-0-1-46   Ready    control-plane   2d5h   v1.36.2+k3s1   10.0.1.46     <none>        Ubuntu 22.04.5 LTS   6.8.0-1060-aws (amd64)   containerd://2.3.2-k3s2
+ip-10-0-1-85   Ready    <none>          29h    v1.36.2+k3s1   10.0.1.85     <none>        Ubuntu 22.04.5 LTS   6.8.0-1060-aws (amd64)   containerd://2.3.2-k3s2
+NAME                        READY   STATUS    RESTARTS        AGE     IP           NODE           NOMINATED NODE   READINESS GATES
+backend-6fb8895556-4c6kg    1/1     Running   0               6m1s    10.42.1.75   ip-10-0-1-31   <none>           <none>
+backend-6fb8895556-8tvcq    1/1     Running   0               43m     10.42.2.49   ip-10-0-1-85   <none>           <none>
+backend-6fb8895556-mwvsn    1/1     Running   0               6m2s    10.42.1.76   ip-10-0-1-31   <none>           <none>
+backend-6fb8895556-qrxlb    1/1     Running   0               44m     10.42.2.48   ip-10-0-1-85   <none>           <none>
+backend-6fb8895556-x2jff    1/1     Running   8 (6m48s ago)   3h50m   10.42.0.60   ip-10-0-1-46   <none>           <none>
+frontend-7f4986bcc5-fp74t   1/1     Running   0               6m2s    10.42.2.51   ip-10-0-1-85   <none>           <none>
+frontend-7f4986bcc5-npwbw   1/1     Running   3 (16m ago)     5h17m   10.42.0.51   ip-10-0-1-46   <none>           <none>
+postgres-0                  1/1     Running   0               2m22s   10.42.1.78   ip-10-0-1-31   <none>           <none>
 NAME          REFERENCE            TARGETS                         MINPODS   MAXPODS   REPLICAS   AGE
-backend-hpa   Deployment/backend   cpu: 1%/50%, memory: 122%/70%   2         5         5          13m
+backend-hpa   Deployment/backend   cpu: 1%/50%, memory: 122%/70%   2         5         5          4h29m
 NAME           MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
-backend-pdb    1               N/A               4                     3m24s
-frontend-pdb   1               N/A               1                     3m24s
+backend-pdb    1               N/A               4                     4h19m
+frontend-pdb   1               N/A               1                     4h19m
+NAME                POD-SELECTOR                              AGE
+allow-acme-solver   acme.cert-manager.io/http01-solver=true   66m
+allow-backend       app=backend                               4h19m
+allow-frontend      app=frontend                              4h19m
+allow-postgres      app=postgres                              4h19m
+default-deny        <none>                                    4h19m
+NAME          READY   SECRET        AGE
+taskapp-tls   True    taskapp-tls   71m
 NAME      SYNC STATUS   HEALTH STATUS
 taskapp   OutOfSync     Healthy
+---HTTPS TEST---
+HTTP/2 200 
+date: Sat, 04 Jul 2026 17:29:52 GMT
+content-type: text/html
+content-length: 608
+last-modified: Wed, 10 Jun 2026 18:54:55 GMT
+etag: "6a29b2ff-260"
+expires: Sat, 04 Jul 2026 17:29:51 GMT
+cache-control: no-cache
+cache-control: no-cache
+accept-ranges: bytes
+strict-transport-security: max-age=31536000; includeSubDomains
+
