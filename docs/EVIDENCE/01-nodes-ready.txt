@@ -1,0 +1,21 @@
+NAME           STATUS   ROLES           AGE    VERSION        INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION           CONTAINER-RUNTIME
+ip-10-0-1-31   Ready    <none>          25h    v1.36.2+k3s1   10.0.1.31     <none>        Ubuntu 22.04.5 LTS   6.8.0-1057-aws (amd64)   containerd://2.3.2-k3s2
+ip-10-0-1-46   Ready    control-plane   2d1h   v1.36.2+k3s1   10.0.1.46     <none>        Ubuntu 22.04.5 LTS   6.8.0-1057-aws (amd64)   containerd://2.3.2-k3s2
+ip-10-0-1-85   Ready    <none>          25h    v1.36.2+k3s1   10.0.1.85     <none>        Ubuntu 22.04.5 LTS   6.8.0-1057-aws (amd64)   containerd://2.3.2-k3s2
+NAME                        READY   STATUS      RESTARTS   AGE   IP           NODE           NOMINATED NODE   READINESS GATES
+backend-6fb8895556-2rhr9    1/1     Running     0          61m   10.42.2.12   ip-10-0-1-85   <none>           <none>
+backend-6fb8895556-8lngx    1/1     Running     0          33s   10.42.0.35   ip-10-0-1-46   <none>           <none>
+backend-6fb8895556-cwm8p    1/1     Running     0          33s   10.42.0.36   ip-10-0-1-46   <none>           <none>
+backend-6fb8895556-j4nz2    1/1     Running     0          62m   10.42.1.11   ip-10-0-1-31   <none>           <none>
+backend-6fb8895556-rlkfz    0/1     Running     0          18s   10.42.2.19   ip-10-0-1-85   <none>           <none>
+frontend-7f4986bcc5-m6lj8   1/1     Running     0          62m   10.42.1.10   ip-10-0-1-31   <none>           <none>
+frontend-7f4986bcc5-npwbw   1/1     Running     0          61m   10.42.0.15   ip-10-0-1-46   <none>           <none>
+postgres-0                  1/1     Running     0          25h   10.42.1.3    ip-10-0-1-31   <none>           <none>
+taskapp-migrate-5cqpq       0/1     Completed   0          37m   10.42.0.16   ip-10-0-1-46   <none>           <none>
+NAME          REFERENCE            TARGETS                         MINPODS   MAXPODS   REPLICAS   AGE
+backend-hpa   Deployment/backend   cpu: 1%/50%, memory: 122%/70%   2         5         5          13m
+NAME           MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
+backend-pdb    1               N/A               4                     3m24s
+frontend-pdb   1               N/A               1                     3m24s
+NAME      SYNC STATUS   HEALTH STATUS
+taskapp   OutOfSync     Healthy
