@@ -9,3 +9,4 @@ data:
   DATABASE_NAME: "taskapp"
   DATABASE_USER: "taskapp_user"
   PORT: "5000"
+  ENVIRONMENT: "production"
