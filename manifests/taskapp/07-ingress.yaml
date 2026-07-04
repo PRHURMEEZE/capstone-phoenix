@@ -5,10 +5,17 @@ metadata:
   namespace: taskapp
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - prhurmeeze.name.ng
+      secretName: taskapp-tls
   rules:
-    - http:
+    - host: prhurmeeze.name.ng
+      http:
         paths:
           - path: /api
             pathType: Prefix
