@@ -1,0 +1,15 @@
+NAME                        READY   STATUS              RESTARTS        AGE     IP           NODE           NOMINATED NODE   READINESS GATES
+backend-6fb8895556-8tvcq    1/1     Running             0               5h46m   10.42.2.49   ip-10-0-1-85   <none>           <none>
+backend-6fb8895556-qrxlb    1/1     Running             0               5h46m   10.42.2.48   ip-10-0-1-85   <none>           <none>
+backend-6fb8895556-x2jff    1/1     Running             8 (5h9m ago)    8h      10.42.0.60   ip-10-0-1-46   <none>           <none>
+backend-6fb8895556-x6kj5    0/1     Running             1 (51s ago)     5m10s   10.42.0.66   ip-10-0-1-46   <none>           <none>
+backend-6fb8895556-zt7ms    0/1     Running             0               5m10s   10.42.1.86   ip-10-0-1-31   <none>           <none>
+frontend-7f4986bcc5-fp74t   1/1     Running             0               5h8m    10.42.2.51   ip-10-0-1-85   <none>           <none>
+frontend-7f4986bcc5-npwbw   1/1     Running             3 (5h19m ago)   10h     10.42.0.51   ip-10-0-1-46   <none>           <none>
+postgres-0                  0/1     ContainerCreating   0               109s    <none>       ip-10-0-1-31   <none>           <none>
+NAME           STATUS   ROLES           AGE     VERSION
+ip-10-0-1-31   Ready    <none>          35h     v1.36.2+k3s1
+ip-10-0-1-46   Ready    control-plane   2d10h   v1.36.2+k3s1
+ip-10-0-1-85   Ready    <none>          34h     v1.36.2+k3s1
+App response during failover:
+{"error":"Token is missing"}
