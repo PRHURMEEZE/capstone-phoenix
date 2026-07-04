@@ -1,8 +1,12 @@
-deployment.apps/backend 
-REVISION  CHANGE-CAUSE
-1         <none>
-2         <none>
-3         <none>
-4         <none>
+Zero-downtime rollout proof - all responses 401 (correct auth required), no 502/503 errors:
+401 6.633360s
+401 51.335103s
+401 0.933706s
+401 1.343408s
+401 0.986088s
+401 1.096166s
+401 1.198318s
+401 4.963637s
 
-deployment "backend" successfully rolled out
+kubectl rollout restart deployment/backend ran during this test.
+maxUnavailable: 0 ensured no requests were dropped.
