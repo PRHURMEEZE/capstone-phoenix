@@ -27,14 +27,11 @@ spec:
       kind: Ingress
       jsonPointers:
         - /metadata/annotations
-    - group: networking.k8s.io
-      kind: NetworkPolicy
-      jsonPointers:
-        - /spec
+        - /metadata/resourceVersion
   syncPolicy:
     automated:
       prune: true
-      selfHeal: false
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - RespectIgnoreDifferences=true
