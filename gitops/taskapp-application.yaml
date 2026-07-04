@@ -19,16 +19,22 @@ spec:
         - /spec/replicas
     - group: ""
       kind: Secret
+      name: taskapp-secret
       jsonPointers:
         - /data
+        - /stringData
     - group: networking.k8s.io
       kind: Ingress
       jsonPointers:
         - /metadata/annotations
+    - group: networking.k8s.io
+      kind: NetworkPolicy
+      jsonPointers:
+        - /spec
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
+      selfHeal: false
     syncOptions:
       - CreateNamespace=true
       - RespectIgnoreDifferences=true
