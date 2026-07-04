@@ -1,0 +1,4 @@
+NAME                       STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+postgres-data-postgres-0   Bound    pvc-c26a7d26-6425-4978-b52e-81f5906ce5c8   5Gi        RWO            local-path     <unset>                 30h
+NAME         READY   STATUS    RESTARTS       AGE   IP           NODE           NOMINATED NODE   READINESS GATES
+postgres-0   1/1     Running   8 (3m1s ago)   65m   10.42.1.78   ip-10-0-1-31   <none>           <none>

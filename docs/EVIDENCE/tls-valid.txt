@@ -1,0 +1,15 @@
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+*  subject: CN=prhurmeeze.name.ng
+*  expire date: Oct  2 15:24:58 2026 GMT
+*  subjectAltName: host "prhurmeeze.name.ng" matched cert's "prhurmeeze.name.ng"
+*  issuer: C=US; O=Let's Encrypt; CN=YR2
+*  SSL certificate verify ok.
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0* Using HTTP2, server supports multiplexing
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+> HEAD / HTTP/2
+* old SSL session ID is stale, removing
+< HTTP/2 200 
+< expires: Sat, 04 Jul 2026 18:32:07 GMT
+HTTP/2 200 
+expires: Sat, 04 Jul 2026 18:32:07 GMT
