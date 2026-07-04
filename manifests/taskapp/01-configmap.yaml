@@ -10,3 +10,4 @@ data:
   DATABASE_USER: "taskapp_user"
   PORT: "5000"
   ENVIRONMENT: "production"
+  DEMO: "live-gitops-demo"
